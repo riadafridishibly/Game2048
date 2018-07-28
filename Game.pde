@@ -25,37 +25,40 @@ class Game {
       }
     }
     createNewTiles();
+    createNewTiles();
   }
 
   void createNewTiles() {
     ArrayList<Tile> items = getEmptyTiles();
+
+    if (items.isEmpty()) {
+      // I'll implement gameover subroutine later.
+      // Dunno When. But I hope I will.
+      println("Game Over Possibly");
+      return;
+    }
+
     if (items.size() < 3 && moved == true)
       return;
-    if (items.size() > 0) {
-      int cnt = 0;
 
-      for (int i = 0; i < items.size(); ++i) {
-        if (cnt == 2)
-          return;
-        float r = random(1);
-        if (r < 0.10) {
-          items.get(i).setValue(2);
-          cnt++;
-        }
-      }
-      if (cnt < 2) {
-        items.get(0).setValue(2);
-        items.get(items.size() - 1).setValue(2);
-      }
-    } else {
-      //noLoop();
-      println("GameOVER Possibly");
-    }
+    int idx = int(random(items.size()));
+    items.get(idx).setValue(2);
+    //int cnt = 0;
+    //for (int i = 0; i < items.size(); ++i) {
+    //  float r = random(1);
+    //  if (r < 0.10) {
+    //    items.get(i).setValue(2);
+    //    cnt++;
+    //    return;
+    //  }
+    //}
+    //if (cnt == 0) {
+    //  items.get(0).setValue(2);
+    //  items.get(items.size() - 1).setValue(2);
+    //}
   }
 
   void run() {
-
-
     show();
   }
 
