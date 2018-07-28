@@ -1,5 +1,5 @@
 // Grid will be GRIDSIZE number of rows and cols.
-final int GRIDSIZE = 8;
+final int GRIDSIZE = 4;
 
 Game game;
 
